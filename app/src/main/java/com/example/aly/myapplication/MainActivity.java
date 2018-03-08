@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,12 +17,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class MainActivity extends AppCompatActivity {
      FirebaseAuth mAuth;
-    private EditText emailin,passwordin;
+    private EditText emailin,passwordin,nameup,emailup,passwordup,repasswordup;
     private static final String TAG = "MainActivity";
-    private String email,password;
+    private String email,password,name ,emailupt,passwordupt,repassword;
+    private Button signin1,signin22 ,signup,rsignup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +33,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
         emailin = (EditText)findViewById(R.id.emailin);
+        nameup = (EditText)findViewById(R.id.nameup);
+        emailup = (EditText)findViewById(R.id.emailup);
+        passwordup = (EditText)findViewById(R.id.passwordup);
+        repasswordup = (EditText)findViewById(R.id.repasswordup);
+
         passwordin = (EditText)findViewById(R.id.passwordin);
+        emailin.setVisibility(View.INVISIBLE);
+        passwordin.setVisibility(View.INVISIBLE);
+        nameup.setVisibility(View.INVISIBLE);
+        emailup.setVisibility(View.INVISIBLE);
+        passwordup.setVisibility(View.INVISIBLE);
+        repasswordup.setVisibility(View.INVISIBLE);
+        signin1=(Button)findViewById(R.id.button3);
+        signin22=(Button)findViewById(R.id.button7);
+        signup=(Button)findViewById(R.id.button2);
+        rsignup=(Button)findViewById(R.id.rsignup);
+        signin22.setVisibility(View.INVISIBLE);
+        rsignup.setVisibility(View.INVISIBLE);
+
 
 
 
@@ -45,9 +66,42 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void signin(View view) {
+        emailin.setVisibility(View.VISIBLE);
+        passwordin.setVisibility(View.VISIBLE);
+        signin22.setVisibility(View.VISIBLE);
+        signup.setVisibility(View.INVISIBLE);
+        signin1.setVisibility(View.INVISIBLE);
 
 
 
+
+    }
+
+    public void signup(View view) {
+        signup.setVisibility(View.INVISIBLE);
+        signin1.setVisibility(View.INVISIBLE);
+        nameup.setVisibility(View.VISIBLE);
+        emailup.setVisibility(View.VISIBLE);
+        passwordup.setVisibility(View.VISIBLE);
+        repasswordup.setVisibility(View.VISIBLE);
+        rsignup.setVisibility(View.VISIBLE);
+
+
+    }
+    private void updateUI(FirebaseUser user) {
+
+        if (user != null) {
+            Intent intent = new Intent(this,SigninActivity.class);
+            startActivity(intent);
+
+
+        } else {
+
+
+        }
+    }
+
+    public void signin2(View view) {
         email=emailin.getText().toString();
         password=passwordin.getText().toString();
         if (email.equals("")||password.equals("")){
@@ -74,23 +128,48 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
         }
-    }
-
-    public void signup(View view) {
-        Intent intent = new Intent(this,SignupActivity.class);
-        startActivity(intent);
 
     }
-    private void updateUI(FirebaseUser user) {
 
-        if (user != null) {
-            Intent intent = new Intent(this,SigninActivity.class);
-            startActivity(intent);
+    public void signup2(View view) {
 
 
-        } else {
+        name =nameup.getText().toString();
+        emailupt =emailup.getText().toString();
+        passwordupt =passwordup.getText().toString();
+        repassword =repasswordup.getText().toString();
+        if (name.equals("")||email.equals("")||password.equals("")||
+                repassword.equals("")||!(password.equals(repassword))){
+            Toast.makeText(MainActivity.this, "opps \n is it not clear ?",
+                    Toast.LENGTH_LONG).show();
+        }
+        else {
+            mAuth.createUserWithEmailAndPassword(email,password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()){
+
+                                Toast.makeText(MainActivity.this, "good",
+                                        Toast.LENGTH_LONG).show();
+                                FirebaseUser user =mAuth.getCurrentUser();
+                                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                        .setDisplayName(name).build();
+                                user.updateProfile(profileUpdates);
+                                go();
+
+                            }
+                            else{Toast.makeText(MainActivity.this, "bad",
+                                    Toast.LENGTH_LONG).show();}
+
+                        }
+                    });
 
 
         }
+    }
+    public void go(){
+        Intent intent = new Intent(this,SigninActivity.class);
+        startActivity(intent);
     }
 }
