@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="new feed" android:id="@+id/newfeed"></item>
+    <item android:title="new visit" android:id="@+id/newvisit"></item>
+    <item android:title="visits" android:id="@+id/visits"></item>
+    <item android:title="sign out" android:id="@+id/signouti"></item>
+</menu>

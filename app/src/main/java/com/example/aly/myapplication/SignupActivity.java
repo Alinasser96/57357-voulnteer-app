@@ -27,13 +27,13 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        nameup = (EditText)findViewById(R.id.nameup);
+        nameup = (EditText)findViewById(R.id.nameup3);
         auth = FirebaseAuth.getInstance();
 
-        emailup = (EditText)findViewById(R.id.emailup);
+        emailup = (EditText)findViewById(R.id.emailup3);
 
-        passwordup = (EditText)findViewById(R.id.passwordup);
-        repasswordup = (EditText)findViewById(R.id.repasswordup);
+        passwordup = (EditText)findViewById(R.id.passwordup3);
+        repasswordup = (EditText)findViewById(R.id.repasswordup3);
 
         signupf = (Button)findViewById(R.id.signupf);
          //intent = new Intent(this,SigninActivity.class);

@@ -75,7 +75,7 @@ tools:context="com.example.aly.myapplication.MainActivity">
         app:srcCompat="@drawable/boy" />
 
     <EditText
-        android:id="@+id/emailup"
+        android:id="@+id/emailup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="136dp"
@@ -92,7 +92,7 @@ tools:context="com.example.aly.myapplication.MainActivity">
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/nameup"
+        android:id="@+id/nameup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
@@ -155,7 +155,7 @@ tools:context="com.example.aly.myapplication.MainActivity">
         android:text="Sign up"
         android:textColor="@android:color/black"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/nameup"
+        app:layout_constraintBottom_toTopOf="@+id/nameup2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -198,7 +198,7 @@ tools:context="com.example.aly.myapplication.MainActivity">
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
     <EditText
-        android:id="@+id/passwordup"
+        android:id="@+id/passwordup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="192dp"
@@ -234,7 +234,7 @@ tools:context="com.example.aly.myapplication.MainActivity">
 
         />
     <EditText
-        android:id="@+id/repasswordup"
+        android:id="@+id/repasswordup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -252,5 +252,36 @@ tools:context="com.example.aly.myapplication.MainActivity">
         app:layout_constraintTop_toBottomOf="@+id/emailin"
 
         />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="34dp"
+        android:layout_marginTop="27dp"
+        android:background="@android:color/transparent"
+        android:onClick="already"
+        android:text="already have account "
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:onClick="createnew"
+        android:text="create new account"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button6"
+        app:layout_constraintVertical_bias="0.158" />
 
 </android.support.constraint.ConstraintLayout>

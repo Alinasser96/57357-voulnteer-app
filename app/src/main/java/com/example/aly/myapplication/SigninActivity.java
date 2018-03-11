@@ -1,9 +1,12 @@
 package com.example.aly.myapplication;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,24 +26,76 @@ import java.util.List;
 import java.util.Map;
 
 public class SigninActivity extends AppCompatActivity {
-    private Button signout;
+
     private FirebaseDatabase mfirebasedatabase ;
     private DatabaseReference myref;
+    private String named,currentuser;
     private static final String TAG = "SigninActivity";
     final ArrayList<Feeds> feedsList= new ArrayList<>();
     final ArrayList<Feeds> feedsList2= new ArrayList<>();
 
     private ListView listView;
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the main_menu; this adds items to the action bar if it is present.
+        currentuser = FirebaseAuth.getInstance().getUid();
+        if(currentuser.equals("b3C28u0hX3WAIEPvtLnCMcUoUMn1")){
+            getMenuInflater().inflate(R.menu.menu2, menu);
+        }
+        else {
+            getMenuInflater().inflate(R.menu.menu1, menu);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.newfeed:
+                //your action
+                Intent intent = new Intent(this,Write.class);
+                startActivity(intent);
+                break;
+            case R.id.newvisit:
+                //your action
+                Intent intent3 = new Intent(this,NewVisit.class);
+                startActivity(intent3);
+                break;
+            case R.id.visits:
+                //your action
+                Intent intent4 = new Intent(this,visits.class);
+                startActivity(intent4);
+                break;
+            case R.id.signouti:
+                //your action
+                FirebaseAuth.getInstance().signOut();
+                Intent intent2 = new Intent(this,MainActivity.class);
+                startActivity(intent2);
+                finish();
+                break;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
-        signout=(Button)findViewById(R.id.button4);
+
+
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String name = user.getDisplayName();
-        Feeds feed2 = new Feeds("a","b","c","d");
-        feedsList2.add(feed2);
+        named = user.getDisplayName();
+
+
+
+
+
 
         //listview to display data
         listView = (ListView)findViewById(R.id.listview21);
@@ -48,17 +103,20 @@ public class SigninActivity extends AppCompatActivity {
         //database
         mfirebasedatabase = FirebaseDatabase.getInstance();
         myref= mfirebasedatabase.getReference();
+        currentuser = FirebaseAuth.getInstance().getUid();
+        if(currentuser.equals("b3C28u0hX3WAIEPvtLnCMcUoUMn1")){
 
-
-
-
-
-        if (user != null) {
-            // Name, email address, and profile photo Url
-
-            String email = user.getEmail();
-            signout.setText("good by "+ name);
         }
+
+
+
+
+
+
+
+
+
+
 
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference usersRef = rootRef.child("feed");
@@ -85,19 +143,8 @@ public class SigninActivity extends AppCompatActivity {
 
     }
 
-    public void signout(View view) {
-        FirebaseAuth.getInstance().signOut();
-       Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-    }
 
 
-    public void newf(View view) {
-        Intent intent = new Intent(this,Write.class);
-        startActivity(intent);
-
-
-    }
 
 
 

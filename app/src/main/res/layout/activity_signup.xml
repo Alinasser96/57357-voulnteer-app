@@ -7,7 +7,7 @@
     tools:context="com.example.aly.myapplication.SignupActivity">
 
     <EditText
-        android:id="@+id/nameup"
+        android:id="@+id/nameup3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/emailup"
+        android:id="@+id/emailup3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -29,10 +29,10 @@
         android:inputType="textPersonName"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameup" />
+        app:layout_constraintTop_toBottomOf="@+id/nameup3" />
 
     <EditText
-        android:id="@+id/passwordup"
+        android:id="@+id/passwordup3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -42,10 +42,10 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailup" />
+        app:layout_constraintTop_toBottomOf="@+id/emailup3" />
 
     <EditText
-        android:id="@+id/repasswordup"
+        android:id="@+id/repasswordup3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -54,7 +54,7 @@
         android:inputType="textPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordup" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordup3" />
 
     <Button
         android:id="@+id/signupf"
@@ -67,6 +67,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/repasswordup" />
+        app:layout_constraintTop_toBottomOf="@+id/repasswordup2" />
 
 </android.support.constraint.ConstraintLayout>

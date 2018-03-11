@@ -21,10 +21,11 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class MainActivity extends AppCompatActivity {
      FirebaseAuth mAuth;
+    FirebaseAuth auth;
     private EditText emailin,passwordin,nameup,emailup,passwordup,repasswordup;
     private static final String TAG = "MainActivity";
-    private String email,password,name ,emailupt,passwordupt,repassword;
-    private Button signin1,signin22 ,signup,rsignup;
+    private String email,password,fucname ,fucemail,fucpassword,fucrepassword;
+    private Button signin1,signin22 ,signup,rsignup,crenew,alrhave;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +33,14 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
         emailin = (EditText)findViewById(R.id.emailin);
-        nameup = (EditText)findViewById(R.id.nameup);
-        emailup = (EditText)findViewById(R.id.emailup);
-        passwordup = (EditText)findViewById(R.id.passwordup);
-        repasswordup = (EditText)findViewById(R.id.repasswordup);
-
+        nameup = (EditText)findViewById(R.id.nameup2);
+        emailup = (EditText)findViewById(R.id.emailup2);
+        passwordup = (EditText)findViewById(R.id.passwordup2);
+        repasswordup = (EditText)findViewById(R.id.repasswordup2);
+        crenew = (Button)findViewById(R.id.button8) ;
+        alrhave = (Button)findViewById(R.id.button6) ;
         passwordin = (EditText)findViewById(R.id.passwordin);
         emailin.setVisibility(View.INVISIBLE);
         passwordin.setVisibility(View.INVISIBLE);
@@ -51,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
         rsignup=(Button)findViewById(R.id.rsignup);
         signin22.setVisibility(View.INVISIBLE);
         rsignup.setVisibility(View.INVISIBLE);
+        crenew.setVisibility(View.INVISIBLE);
+        alrhave.setVisibility(View.INVISIBLE);
+
 
 
 
@@ -71,13 +77,14 @@ public class MainActivity extends AppCompatActivity {
         signin22.setVisibility(View.VISIBLE);
         signup.setVisibility(View.INVISIBLE);
         signin1.setVisibility(View.INVISIBLE);
-
+        crenew.setVisibility(View.VISIBLE);
 
 
 
     }
 
     public void signup(View view) {
+
         signup.setVisibility(View.INVISIBLE);
         signin1.setVisibility(View.INVISIBLE);
         nameup.setVisibility(View.VISIBLE);
@@ -85,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         passwordup.setVisibility(View.VISIBLE);
         repasswordup.setVisibility(View.VISIBLE);
         rsignup.setVisibility(View.VISIBLE);
-
+        alrhave.setVisibility(View.VISIBLE);
 
     }
     private void updateUI(FirebaseUser user) {
@@ -132,19 +139,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void signup2(View view) {
-
-
-        name =nameup.getText().toString();
-        emailupt =emailup.getText().toString();
-        passwordupt =passwordup.getText().toString();
-        repassword =repasswordup.getText().toString();
-        if (name.equals("")||email.equals("")||password.equals("")||
-                repassword.equals("")||!(password.equals(repassword))){
+        fucname =nameup.getText().toString();
+        fucemail =emailup.getText().toString();
+        fucpassword =passwordup.getText().toString();
+        fucrepassword =repasswordup.getText().toString();
+        if (fucname.equals("")||fucemail.equals("")||fucpassword.equals("")||
+                fucrepassword.equals("")||!(fucpassword.equals(fucrepassword))){
             Toast.makeText(MainActivity.this, "opps \n is it not clear ?",
                     Toast.LENGTH_LONG).show();
         }
         else {
-            mAuth.createUserWithEmailAndPassword(email,password)
+            auth.createUserWithEmailAndPassword(fucemail,fucpassword)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -152,9 +157,9 @@ public class MainActivity extends AppCompatActivity {
 
                                 Toast.makeText(MainActivity.this, "good",
                                         Toast.LENGTH_LONG).show();
-                                FirebaseUser user =mAuth.getCurrentUser();
+                                FirebaseUser user = auth.getCurrentUser();
                                 UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                        .setDisplayName(name).build();
+                                        .setDisplayName(fucname).build();
                                 user.updateProfile(profileUpdates);
                                 go();
 
@@ -167,9 +172,28 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+
     }
     public void go(){
         Intent intent = new Intent(this,SigninActivity.class);
         startActivity(intent);
+    }
+
+    public void already(View view) {
+        emailin.setVisibility(View.VISIBLE);
+        passwordin.setVisibility(View.VISIBLE);
+        signin22.setVisibility(View.VISIBLE);
+        signup.setVisibility(View.INVISIBLE);
+        signin1.setVisibility(View.INVISIBLE);
+    }
+
+    public void createnew(View view) {
+        signup.setVisibility(View.INVISIBLE);
+        signin1.setVisibility(View.INVISIBLE);
+        nameup.setVisibility(View.VISIBLE);
+        emailup.setVisibility(View.VISIBLE);
+        passwordup.setVisibility(View.VISIBLE);
+        repasswordup.setVisibility(View.VISIBLE);
+        rsignup.setVisibility(View.VISIBLE);
     }
 }
