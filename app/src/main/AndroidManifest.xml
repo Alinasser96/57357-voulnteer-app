@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.aly.myapplication">
+    package="com.volunteer.aly.volunteerAPP">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/lg"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/lg"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.volunteer.aly.volunteerAPP.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".SigninActivity" />
+        <activity android:name="com.volunteer.aly.volunteerAPP.SignupActivity" />
+        <activity android:name="com.volunteer.aly.volunteerAPP.SigninActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -44,18 +43,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Write"
+            android:name="com.volunteer.aly.volunteerAPP.Write"
             android:label="@string/title_activity_write"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".Main2Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name="com.volunteer.aly.volunteerAPP.Main2Activity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".NewVisit" />
-        <activity android:name=".visits"></activity>
+        <activity android:name="com.volunteer.aly.volunteerAPP.NewVisit" />
+        <activity android:name="com.volunteer.aly.volunteerAPP.visits"></activity>
     </application>
 
 </manifest>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.aly.myapplication.Write"
+    tools:context="com.volunteer.aly.volunteerAPP.Write"
     tools:showIn="@layout/activity_write">
 
     <LinearLayout
@@ -18,24 +18,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="patient name"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/roome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="room number"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/feede"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="feed"
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/post"

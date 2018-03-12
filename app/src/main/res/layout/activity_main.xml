@@ -4,22 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_light_background"><![CDATA[
+    android:background="@color/cardview_light_background">
 
-
-
-tools:context="com.example.aly.myapplication.MainActivity">
-
-
-
-
-
-
-
-
-
-
-    ]]>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="304dp"
+        android:scaleType="centerInside"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/boy" />
 
     <Button
         android:id="@+id/button7"
@@ -28,7 +25,7 @@ tools:context="com.example.aly.myapplication.MainActivity">
 
         android:layout_marginBottom="67dp"
         android:layout_marginTop="39dp"
-        android:background="@drawable/as23"
+        android:background="@drawable/fuck"
         android:onClick="signin2"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -48,7 +45,7 @@ tools:context="com.example.aly.myapplication.MainActivity">
 
         android:layout_marginBottom="67dp"
         android:layout_marginTop="39dp"
-        android:background="@drawable/as23"
+        android:background="@drawable/fuck"
         android:onClick="signup2"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -61,18 +58,6 @@ tools:context="com.example.aly.myapplication.MainActivity">
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordin"
         app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="304dp"
-        android:scaleType="centerInside"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/boy" />
 
     <EditText
         android:id="@+id/emailup2"
@@ -114,8 +99,7 @@ tools:context="com.example.aly.myapplication.MainActivity">
         android:layout_height="wrap_content"
 
         android:layout_marginTop="40dp"
-        android:fontFamily="@font/trajan"
-        android:text="57357"
+
         android:textColor="@color/bla"
         android:textSize="65sp"
         android:textStyle="bold|italic"
@@ -132,7 +116,6 @@ tools:context="com.example.aly.myapplication.MainActivity">
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:layout_marginTop="1dp"
-        android:text="Volunteers App"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -147,8 +130,9 @@ tools:context="com.example.aly.myapplication.MainActivity">
 
         android:layout_marginBottom="76dp"
         android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
         android:layout_marginTop="47dp"
-        android:background="@drawable/as23"
+        android:background="@drawable/fuck"
         android:onClick="signup"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -159,15 +143,17 @@ tools:context="com.example.aly.myapplication.MainActivity">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <Button
+   <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="48dp"
-        android:background="@drawable/as23"
+        android:background="@drawable/fuck"
         android:onClick="signin"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -283,5 +269,32 @@ tools:context="com.example.aly.myapplication.MainActivity">
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button6"
         app:layout_constraintVertical_bias="0.158" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
+        android:layout_marginTop="156dp"
+        android:text="volunteers application"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
