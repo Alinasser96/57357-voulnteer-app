@@ -20,6 +20,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
      FirebaseAuth mAuth;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private String email,password,fucname ,fucemail,fucpassword,fucrepassword;
     private Button signin1,signin22 ,signup,rsignup,crenew,alrhave;
+    private DatabaseReference myref;
+    private FirebaseDatabase mfirebasedatabase ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -170,6 +174,12 @@ public class MainActivity extends AppCompatActivity {
                                 FirebaseUser user = auth.getCurrentUser();
                                 UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                         .setDisplayName(fucname).build();
+                                mfirebasedatabase= FirebaseDatabase.getInstance();
+                                myref= mfirebasedatabase.getReference();
+                                String  currentuser = FirebaseAuth.getInstance().getUid();
+                                Emails emails = new Emails(fucemail,currentuser,fucname,"members","data");
+                                DatabaseReference newref =myref.child("all_emails").push();
+                               newref.setValue(emails);
                                 user.updateProfile(profileUpdates);
                                 go();
 
